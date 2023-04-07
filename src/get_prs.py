@@ -15,7 +15,7 @@ def main():
     token = sys.argv[4]
 
     print(in_yellow("Getting PRs..."))
-    anonymized_prs, _ = Anonymizer() \
+    anonymized_prs, usernames_to_substitutes = Anonymizer() \
         .anonymize(GithubClient.get_prs_as_json(organization, repository, number_of_prs, token))
 
     filename = save_to_file(anonymized_prs)
