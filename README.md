@@ -1,10 +1,10 @@
 A script gets specified number of last merged PRs from a Github repository, anonymizes sensitive data, and saves the PRs into a file that is later used for PR analysis in the [co-create tool](https://app.co-create.team/).
 
-#### Required python3 libraries that need to be installed before running the script
+#### Required python3 libraries
 - `python_graphql_client` (for retrieving PR data from GitHub)
 - `faker` (for anonymizing sensitive data)
 
-there is a [requirements.txt](https://github.com/dragan-stepanovic/get_github_prs/blob/main/requirements.txt) file, but if you prefer to install it directly:  
+there is a [requirements.txt](https://github.com/dragan-stepanovic/get_github_prs/blob/main/requirements.txt) file, but if you prefer to install them directly:  
 - `pip3 install python_graphql_client`  
 - `pip3 install faker`
   
