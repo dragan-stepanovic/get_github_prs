@@ -21,7 +21,7 @@ def main():
 
     if should_anonymize(to_anonymize):
         anonymized_prs, usernames_to_substitutes = Anonymizer().anonymize(prs_as_json)
-        print(in_green(f'PRs saved to {save_prs(anonymized_prs)}'))
+        print(in_green(f'Anonymized PRs saved to {save_prs(anonymized_prs)}'))
         print(in_green(f'Username substitutes saved to {save_to_file(usernames_to_substitutes, "Username_substitutes")}'))
 
     print(in_green(f'PRs saved to {save_prs(prs_as_json)}'))
