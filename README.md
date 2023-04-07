@@ -16,7 +16,7 @@ For example, for getting the last 15 merged PRs from https://github.com/symfony/
 `python3 src/get_prs.py symfony polyfill 15 your-github-token`  
   
 #### GitHub token
-Personal GitHub token can be generated from [this page](https://github.com/settings/tokens/new) and you'll need to select the `repo` scope in order to get the data needed for the PR analysis (you can see used GraphQl queries in [queries.py](https://github.com/dragan-stepanovic/get_github_prs/blob/main/src/queries.py)).  
+Personal GitHub token can be generated from [this page](https://github.com/settings/tokens/new) and you'll need to select the `repo` scope in order to get the data needed for the PR analysis. You can see what type of data is retrieved using GraphQl queries in [queries.py](https://github.com/dragan-stepanovic/get_github_prs/blob/main/src/queries.py).  
 
 If your organization requires SSO, you'll need to authorize the token using SSO in the [Personal access tokens (classic) page](https://github.com/settings/tokens).
   
