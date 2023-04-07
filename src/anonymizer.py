@@ -12,7 +12,7 @@ class Anonymizer:
         return prs_as_json
 
     def usernames_to_substitutes(self, prs_as_json):
-        return {username: self.faker.user_name() for username in self.unique(self.usernames_in(prs_as_json))}
+        return {username: self.faker.user_name() for username in self.unique(self.all_usernames_in(prs_as_json))}
 
     def anonymize_usernames(self, json_data, logins_to_substitutes):
         results = []
@@ -40,17 +40,17 @@ class Anonymizer:
                     results += self.anonymize_comments(value)
         return results
 
-    def usernames_in(self, json_data):
+    def all_usernames_in(self, json_data):
         results = []
         if isinstance(json_data, list):
             for item in json_data:
-                results += self.usernames_in(item)
+                results += self.all_usernames_in(item)
         elif isinstance(json_data, dict):
             for key, value in json_data.items():
                 if key == 'login':
                     results.append(value)
                 else:
-                    results += self.usernames_in(value)
+                    results += self.all_usernames_in(value)
         return results
 
     def anonymize_comment(self, comment):
