@@ -8,10 +8,6 @@ from github_client import GithubClient
 TIMESTAMP_FORMAT = "%d-%m-%Y_%H-%M-%S"
 
 
-def should_anonymize(do_not_anonymize):
-    return do_not_anonymize != '-plain'
-
-
 def main():
     organization = sys.argv[1]
     repository = sys.argv[2]
@@ -29,6 +25,10 @@ def main():
         print(in_green(f'Username substitutes saved to {save_to_file(usernames_to_substitutes, "Username_substitutes")}'))
 
     print(in_green(f'PRs saved to {save_prs(prs_as_json)}'))
+
+
+def should_anonymize(do_not_anonymize):
+    return do_not_anonymize != '-plain'
 
 
 def save_prs(anonymized_prs):
