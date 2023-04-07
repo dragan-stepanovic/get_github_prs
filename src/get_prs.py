@@ -15,9 +15,12 @@ def main():
     token = sys.argv[4]
 
     print(in_yellow("Getting PRs..."))
-    filename = save_to_file(Anonymizer().anonymize(GithubClient.get_prs_as_json(organization, repository, number_of_prs, token)))
-    print(in_green(f'File saved to {filename}'))
+    anonymized_prs, _ = Anonymizer() \
+        .anonymize(GithubClient.get_prs_as_json(organization, repository, number_of_prs, token))
 
+    filename = save_to_file(anonymized_prs)
+    print(in_green(f'File saved to {filename}'))
+    
 
 def save_to_file(prs_as_json):
     filename = f'./GitHub_PRs_{datetime.now().strftime(TIMESTAMP_FORMAT)}.json'

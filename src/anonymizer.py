@@ -7,9 +7,10 @@ class Anonymizer:
         self.faker = Faker()
 
     def anonymize(self, prs_as_json):
-        self.anonymize_usernames(prs_as_json, self.usernames_to_substitutes(prs_as_json))
+        substitutes = self.usernames_to_substitutes(prs_as_json)
+        self.anonymize_usernames(prs_as_json, substitutes)
         self.anonymize_comments(prs_as_json)
-        return prs_as_json
+        return prs_as_json, substitutes
 
     def usernames_to_substitutes(self, prs_as_json):
         return {username: self.faker.user_name() for username in self.unique(self.all_usernames_in(prs_as_json))}
