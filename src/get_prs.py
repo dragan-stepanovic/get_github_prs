@@ -13,7 +13,10 @@ def main():
     repo = sys.argv[2]
     number_of_prs = int(sys.argv[3])
     token = sys.argv[4]
-    to_anonymize = sys.argv[5]
+
+    to_anonymize = None
+    if len(sys.argv) == 6:
+        to_anonymize = sys.argv[5]
 
     print(in_yellow("Getting PRs..."))
     prs_as_json, number_of_prs = GithubClient.get_prs_as_json(organization, repo, number_of_prs, token)
