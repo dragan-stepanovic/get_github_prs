@@ -1,8 +1,8 @@
 A script that gets specified number of merged PRs from Github GraphQl and anonymizes sensitive data.
 
 #### Required python3 libraries that need to be installed before running the script
-- python_graphql_client (for retrieving PR data from GitHub)
-- faker (for anonymizing data)
+- `python_graphql_client` (for retrieving PR data from GitHub)
+- `faker` (for anonymizing sensitive data)
 
 there is a [requirements.txt](https://github.com/dragan-stepanovic/get_github_prs/blob/main/requirements.txt) file, but if you prefer to install it directly:  
 - `pip3 install python_graphql_client`  
