@@ -31,7 +31,7 @@ def main():
 
 
 def should_not_anonymize(to_anonymize):
-    return to_anonymize == '-plain'
+    return to_anonymize == '--plain'
 
 
 def save_prs(anonymized_prs, repo, number_of_prs):

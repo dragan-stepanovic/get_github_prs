@@ -29,7 +29,7 @@ Data that is anonymized are:
 
 For every username a substitute is used instead. The script also produces a file with the mapping from usernames to substitutes that were used, and it's prefixed with `Username_substitutes`. 
 
-To **_turn off_** anonymization, you can pass `-plain` as the last argument.
+To **_turn off_** anonymization, you can pass `--plain` as the last argument.
 
 Things that are not anonymized from the potentially sensitive data are:  
 - name of the repository (if it is private), and
