@@ -19,11 +19,11 @@ def main():
     prs_as_json, number_of_prs = GithubClient.get_prs_as_json(organization, repository, number_of_prs, token)
 
     if should_not_anonymize(to_anonymize):
-        print(in_green(f'Not anonymized PRs saved to {save_prs(prs_as_json, number_of_prs)}'))
+        print(in_green(f'Not anonymized PRs saved to {save_prs(prs_as_json, repository, number_of_prs)}'))
         return
 
     anonymized_prs, usernames_to_substitutes = Anonymizer().anonymize(prs_as_json)
-    print(in_green(f'Anonymized PRs saved to {save_prs(anonymized_prs, number_of_prs)}'))
+    print(in_green(f'Anonymized PRs saved to {save_prs(anonymized_prs, repository, number_of_prs)}'))
     print(in_green(f'Usernames substitutes saved to {save_substitutes(usernames_to_substitutes)}'))
 
 
@@ -31,8 +31,8 @@ def should_not_anonymize(to_anonymize):
     return to_anonymize == '-plain'
 
 
-def save_prs(anonymized_prs, number_of_prs):
-    return save_to_file(anonymized_prs, f'GitHub_{number_of_prs}_PRs')
+def save_prs(anonymized_prs, repo, number_of_prs):
+    return save_to_file(anonymized_prs, f'GitHub_last_{number_of_prs}_merged_PRs_in_{repo}')
 
 
 def save_substitutes(usernames_to_substitutes):
