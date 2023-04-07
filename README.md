@@ -1,4 +1,4 @@
-A script that gets specified number of merged PRs from Github GraphQl and anonymizes sensitive data.
+A script gets specified number of last merged PRs from Github GraphQl and anonymizes sensitive data, and saves them into a file.
 
 #### Required python3 libraries that need to be installed before running the script
 - `python_graphql_client` (for retrieving PR data from GitHub)
