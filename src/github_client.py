@@ -13,7 +13,7 @@ class GithubClient:
         prs_as_json = cls.get_prs_in_batches(org, repo, token,
                                              cls.batches_of_prs_to_get(number_of_prs, number_of_prs_in_the_repo,
                                                                        cls.BATCH_SIZE))
-        return cls.remove_superfluous_fields(prs_as_json)
+        return cls.remove_superfluous_fields(prs_as_json), cls.total_number_of_prs_to_get(number_of_prs, number_of_prs_in_the_repo)
 
     @classmethod
     def number_of_prs_in_repo(cls, org, repo, token):
