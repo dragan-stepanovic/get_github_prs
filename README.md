@@ -5,8 +5,8 @@ A script that gets specified number of merged PRs from Github GraphQl and anonym
 - faker (for anonymizing data)
 
 there is a [requirements.txt](https://github.com/dragan-stepanovic/get_github_prs/blob/main/requirements.txt) file, but if you prefer to install it directly:  
-`pip3 install python_graphql_client`  
-`pip3 install faker`
+- `pip3 install python_graphql_client`  
+- `pip3 install faker`
 
 #### Usage 
 `python3 src/get_prs.py organization repository number-of-prs-to-get your-github-token`
