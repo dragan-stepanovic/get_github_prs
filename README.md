@@ -25,6 +25,6 @@ Data that is anonymized are:
 
 The only things that is not anonymized from the potentially sensitive data is:  
 - name of the repository (if it is private), and
-- PR URLs, which are in the following format https://github.com/symfony/polyfill/pull/427 (repository name + PR number)
+- PR URLs, which are in the following format `https://github.com/symfony/polyfill/pull/427` (repository name + PR number)
 
 There is possibility to anonymize this data as well, but in that case URLs in the [PR analysis report](https://app.co-create.team/) won't work.
