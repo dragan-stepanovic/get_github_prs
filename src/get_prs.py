@@ -13,13 +13,22 @@ def main():
     repository = sys.argv[2]
     number_of_prs = int(sys.argv[3])
     token = sys.argv[4]
+    do_not_anonymize = sys.argv[5]
 
     print(in_yellow("Getting PRs..."))
-    anonymized_prs, usernames_to_substitutes = Anonymizer() \
-        .anonymize(GithubClient.get_prs_as_json(organization, repository, number_of_prs, token))
 
-    print(in_green(f'PRs saved to {save_to_file(anonymized_prs, "GitHub_PRs")}'))
-    print(in_green(f'Username substitutes saved to {save_to_file(usernames_to_substitutes, "Username_substitutes")}'))
+    prs_as_json = GithubClient.get_prs_as_json(organization, repository, number_of_prs, token)
+
+    if do_not_anonymize != '-plain':
+        anonymized_prs, usernames_to_substitutes = Anonymizer().anonymize(prs_as_json)
+        print(in_green(f'PRs saved to {save_prs(anonymized_prs)}'))
+        print(in_green(f'Username substitutes saved to {save_to_file(usernames_to_substitutes, "Username_substitutes")}'))
+
+    print(in_green(f'PRs saved to {save_prs(prs_as_json)}'))
+
+
+def save_prs(anonymized_prs):
+    return save_to_file(anonymized_prs, "GitHub_PRs")
 
 
 def save_to_file(prs_as_json, prefix):
