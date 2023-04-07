@@ -10,20 +10,20 @@ TIMESTAMP_FORMAT = "%d-%m-%Y_%H-%M-%S"
 
 def main():
     organization = sys.argv[1]
-    repository = sys.argv[2]
+    repo = sys.argv[2]
     number_of_prs = int(sys.argv[3])
     token = sys.argv[4]
     to_anonymize = sys.argv[5]
 
     print(in_yellow("Getting PRs..."))
-    prs_as_json, number_of_prs = GithubClient.get_prs_as_json(organization, repository, number_of_prs, token)
+    prs_as_json, number_of_prs = GithubClient.get_prs_as_json(organization, repo, number_of_prs, token)
 
     if should_not_anonymize(to_anonymize):
-        print(in_green(f'Not anonymized PRs saved to {save_prs(prs_as_json, repository, number_of_prs)}'))
+        print(in_green(f'Not anonymized PRs saved to {save_prs(prs_as_json, repo, number_of_prs)}'))
         return
 
     anonymized_prs, usernames_to_substitutes = Anonymizer().anonymize(prs_as_json)
-    print(in_green(f'Anonymized PRs saved to {save_prs(anonymized_prs, repository, number_of_prs)}'))
+    print(in_green(f'Anonymized PRs saved to {save_prs(anonymized_prs, repo, number_of_prs)}'))
     print(in_green(f'Usernames substitutes saved to {save_substitutes(usernames_to_substitutes)}'))
 
 
