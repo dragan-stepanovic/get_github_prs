@@ -21,7 +21,7 @@ def main():
     if should_anonymize(to_anonymize):
         anonymized_prs, usernames_to_substitutes = Anonymizer().anonymize(prs_as_json)
         print(in_green(f'Anonymized PRs saved to {save_prs(anonymized_prs)}'))
-        print(in_green(f'Usernames substitutes saved to {save_to_file(usernames_to_substitutes, "Username_substitutes")}'))
+        print(in_green(f'Usernames substitutes saved to {save_substitutes(usernames_to_substitutes)}'))
         return
 
     print(in_green(f'Not anonymized PRs saved to {save_prs(prs_as_json)}'))
@@ -33,6 +33,10 @@ def should_anonymize(to_anonymize):
 
 def save_prs(anonymized_prs):
     return save_to_file(anonymized_prs, "GitHub_PRs")
+
+
+def save_substitutes(usernames_to_substitutes):
+    return save_to_file(usernames_to_substitutes, "Username_substitutes")
 
 
 def save_to_file(prs_as_json, prefix):
