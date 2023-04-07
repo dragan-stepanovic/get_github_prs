@@ -1,4 +1,4 @@
-A script gets specified number of last merged PRs from a Github repository, anonymizes sensitive data, and saves the PRs into a file.
+A script gets specified number of last merged PRs from a Github repository, anonymizes sensitive data, and saves the PRs into a file that is later used for PR analysis in the [co-create tool](https://app.co-create.team/).
 
 #### Required python3 libraries that need to be installed before running the script
 - `python_graphql_client` (for retrieving PR data from GitHub)
