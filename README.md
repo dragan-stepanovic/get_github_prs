@@ -31,7 +31,7 @@ For every username a substitute is used instead. The script also produces a file
 
 To turn off anonymization, you can pass `-plain` as the last argument.
 
-The only things that is not anonymized from the potentially sensitive data is:  
+Things that are not anonymized from the potentially sensitive data is:  
 - name of the repository (if it is private), and
 - PR URLs, which are in the following format `https://github.com/symfony/polyfill/pull/427` (repository name + PR number)
 
