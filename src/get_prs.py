@@ -18,12 +18,12 @@ def main():
     anonymized_prs, usernames_to_substitutes = Anonymizer() \
         .anonymize(GithubClient.get_prs_as_json(organization, repository, number_of_prs, token))
 
-    filename = save_to_file(anonymized_prs)
+    filename = save_to_file(anonymized_prs, "GitHub_PRs")
     print(in_green(f'File saved to {filename}'))
-    
 
-def save_to_file(prs_as_json):
-    filename = f'./GitHub_PRs_{datetime.now().strftime(TIMESTAMP_FORMAT)}.json'
+
+def save_to_file(prs_as_json, prefix):
+    filename = f'./{prefix}_{datetime.now().strftime(TIMESTAMP_FORMAT)}.json'
     with open(filename, 'w') as into_file:
         json.dump(prs_as_json, into_file)
 
