@@ -20,7 +20,7 @@ If your organization requires SSO, you'll need to authorize the token using SSO 
 
 #### Data anonymization  
 Data that is anonymized are:  
-- GitHub user ids used for authoring PRs and providing reviews (`'login'` field in GraphQl response from GitHub) and
+- GitHub user ids used for authoring and reviewing PRs (`'login'` field in GraphQl response from GitHub) and
 - text of comments on the PR (`'bodyText'`)
 
 The only things that is not anonymized from the potentially sensitive data is:  
