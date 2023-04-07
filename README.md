@@ -22,3 +22,9 @@ If your organization requires SSO, you'll need to authorize the token using SSO 
 Data that is anonymized are:  
 - GitHub user ids used for authoring PRs and providing reviews (`'login'` field in GraphQl response from GitHub) and
 - text of comments on the PR (`'bodyText'`)
+
+The only things that is not anonymized from the potentially sensitive data is:  
+- name of the repository (if it is private), and
+- PR URLs  
+
+There is possibility to anonymize this data as well, but in that case URLs in the [PR analysis report](https://app.co-create.team/) won't work.
