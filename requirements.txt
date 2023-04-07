@@ -1,0 +1,2 @@
+python_graphql_client~=0.4.2
+Faker~=18.4.0
