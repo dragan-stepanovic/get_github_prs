@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 
 from anonymizer import Anonymizer
-from client import GithubClient
+from github_client import GithubClient
 
 TIMESTAMP_FORMAT = "%d-%m-%Y_%H-%M-%S"
 
