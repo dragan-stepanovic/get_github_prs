@@ -16,7 +16,6 @@ def main():
     to_anonymize = sys.argv[5]
 
     print(in_yellow("Getting PRs..."))
-
     prs_as_json = GithubClient.get_prs_as_json(organization, repository, number_of_prs, token)
 
     if should_anonymize(to_anonymize):
