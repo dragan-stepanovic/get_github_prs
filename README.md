@@ -33,6 +33,6 @@ To turn off anonymization, you can pass `-plain` as the last argument.
 
 Things that are not anonymized from the potentially sensitive data are:  
 - name of the repository (if it is private), and
-- PR URLs, which are in the following format `https://github.com/symfony/polyfill/pull/427` (repository name + PR number)
+- PR numbers, which are used in the PR URLs in the following format `https://github.com/symfony/polyfill/pull/427` (repository name + PR number)
 
 There is possibility to anonymize this data as well, but in that case URLs in the [PR analysis report](https://app.co-create.team/) won't work.
