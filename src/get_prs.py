@@ -18,17 +18,17 @@ def main():
     print(in_yellow("Getting PRs..."))
     prs_as_json = GithubClient.get_prs_as_json(organization, repository, number_of_prs, token)
 
-    if should_anonymize(to_anonymize):
-        anonymized_prs, usernames_to_substitutes = Anonymizer().anonymize(prs_as_json)
-        print(in_green(f'Anonymized PRs saved to {save_prs(anonymized_prs)}'))
-        print(in_green(f'Usernames substitutes saved to {save_substitutes(usernames_to_substitutes)}'))
+    if should_not_anonymize(to_anonymize):
+        print(in_green(f'Not anonymized PRs saved to {save_prs(prs_as_json)}'))
         return
 
-    print(in_green(f'Not anonymized PRs saved to {save_prs(prs_as_json)}'))
+    anonymized_prs, usernames_to_substitutes = Anonymizer().anonymize(prs_as_json)
+    print(in_green(f'Anonymized PRs saved to {save_prs(anonymized_prs)}'))
+    print(in_green(f'Usernames substitutes saved to {save_substitutes(usernames_to_substitutes)}'))
 
 
-def should_anonymize(to_anonymize):
-    return to_anonymize != '-plain'
+def should_not_anonymize(to_anonymize):
+    return to_anonymize == '-plain'
 
 
 def save_prs(anonymized_prs):
