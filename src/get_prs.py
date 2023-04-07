@@ -27,8 +27,8 @@ def main():
     print(in_green(f'Not anonymized PRs saved to {save_prs(prs_as_json)}'))
 
 
-def should_anonymize(do_not_anonymize):
-    return do_not_anonymize != '-plain'
+def should_anonymize(to_anonymize):
+    return to_anonymize != '-plain'
 
 
 def save_prs(anonymized_prs):
