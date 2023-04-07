@@ -14,7 +14,7 @@ def main():
     number_of_prs = int(sys.argv[3])
     token = sys.argv[4]
 
-    to_anonymize = None
+    to_anonymize = True
     if len(sys.argv) == 6:
         to_anonymize = sys.argv[5]
 
