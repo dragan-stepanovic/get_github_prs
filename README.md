@@ -1,6 +1,6 @@
 A script that gets specified number of merged PRs from Github GraphQl and anonymizes sensitive data.
 
-### Required python libraries that need to be installed before running the script
+### Required python3 libraries that need to be installed before running the script
 - python_graphql_client (for retrieving PR data from GitHub)
 - faker (for anonymizing data)
 
