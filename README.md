@@ -24,8 +24,8 @@ If your organization requires SSO, you'll need to authorize the token using SSO 
 ### Data anonymization  
 Data is anonymized by default.
 Data that is anonymized are:  
-- GitHub usernames used for authoring and reviewing PRs (`'login'` field in GraphQl response from GitHub), and
-- PR comments (`'bodyText'` in GraphQl)
+- GitHub usernames of the PR author and reviewers/commenters (`'login'` field in GraphQl response from GitHub), and
+- PR comments body (`'bodyText'` in GraphQl)
 
 For every username a substitute is used instead. The script also produces a file with the mapping from usernames to substitutes that were used, and it's prefixed with `Username_substitutes`. 
 
