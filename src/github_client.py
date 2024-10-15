@@ -1,6 +1,7 @@
 from python_graphql_client import GraphqlClient
 
 from queries import *
+from tenacity import retry, stop_after_attempt, wait_exponential
 
 
 class GithubClient:
@@ -13,7 +14,8 @@ class GithubClient:
         prs_as_json = cls.get_prs_in_batches(org, repo, token,
                                              cls.batches_of_prs_to_get(number_of_prs, number_of_prs_in_the_repo,
                                                                        cls.BATCH_SIZE))
-        return cls.remove_superfluous_fields(prs_as_json), cls.total_number_of_prs_to_get(number_of_prs, number_of_prs_in_the_repo)
+        return cls.remove_superfluous_fields(prs_as_json), cls.total_number_of_prs_to_get(number_of_prs,
+                                                                                          number_of_prs_in_the_repo)
 
     @classmethod
     def number_of_prs_in_repo(cls, org, repo, token):
@@ -27,11 +29,16 @@ class GithubClient:
         before = ''
         for batch in batches:
             query = prs_query_for(organization, repository, batch, before)
-            response = GraphqlClient(cls.GRAPHQL_URL).execute(query=query, headers=cls.include(token))
+            response = GithubClient.get_from_github(query, token)
             before = cls.before(cls.start_cursor_in(response))
             responses.append(response)
 
         return cls.assemble_to_a_single_response(responses)
+
+    @classmethod
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
+    def get_from_github(cls, query, token):
+        return GraphqlClient(cls.GRAPHQL_URL).execute(query=query, headers=cls.include(token))
 
     @classmethod
     def batches_of_prs_to_get(cls, total_number_asked, total_number_in_repo, batch_size):
