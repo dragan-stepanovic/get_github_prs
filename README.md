@@ -5,8 +5,7 @@ A script gets specified number of last merged PRs from a Github repository, anon
 - `faker` (for anonymizing sensitive data)
 
 there is a [requirements.txt](https://github.com/dragan-stepanovic/get_github_prs/blob/main/requirements.txt) file, but if you prefer to install them directly:  
-- `pip3 install python_graphql_client`  
-- `pip3 install faker`
+- `pip install python_graphql_client faker tenacity`
   
   
 ### Usage 
