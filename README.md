@@ -3,9 +3,10 @@ A script gets specified number of last merged PRs from a Github repository, anon
 ### Required python3 libraries
 - `python_graphql_client` (for retrieving PR data from GitHub)
 - `faker` (for anonymizing sensitive data)
+- tenacity (using retries for Github API)
 
 there is a [requirements.txt](https://github.com/dragan-stepanovic/get_github_prs/blob/main/requirements.txt) file, but if you prefer to install them directly:  
-- `pip install python_graphql_client faker tenacity`
+- `pip3 install python_graphql_client faker tenacity`
   
   
 ### Usage 
