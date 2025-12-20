@@ -12,6 +12,10 @@ def total_prs_count_query_for(organization, repository):
 def prs_query_for(organization, repository, batch_of_prs, before):
     return '''{
   repository(owner: "''' + organization + '''", name: "''' + repository + '''") {
+    owner {
+      login
+    }
+    name
     pullRequests(last: ''' + str(
         batch_of_prs) + ', states: MERGED, orderBy: {field: CREATED_AT, direction: ASC}' + before + ''')
     {
