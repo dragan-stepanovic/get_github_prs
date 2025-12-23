@@ -9,14 +9,14 @@ TIMESTAMP_FORMAT = "%d-%m-%Y_%H-%M-%S"
 
 
 def main():
-    organization = sys.argv[1]
-    repo = sys.argv[2]
-    number_of_prs = int(sys.argv[3])
-    token = sys.argv[4]
+    org_repo = sys.argv[1]
+    organization, repo = org_repo.split('/')
+    number_of_prs = int(sys.argv[2])
+    token = sys.argv[3]
 
     to_anonymize = True
-    if len(sys.argv) == 6:
-        to_anonymize = sys.argv[5]
+    if len(sys.argv) == 5:
+        to_anonymize = sys.argv[4]
 
     print(in_yellow("Getting PRs..."))
     prs_as_json, number_of_prs = GithubClient.get_prs_as_json(organization, repo, number_of_prs, token)
